@@ -77,16 +77,10 @@
       </div>
     </div>
   </div> -->
-  <OptionBar
-    class="
-      min-h-screen
-      flex flex-col flex-auto flex-shrink-0
-      antialiased
-      bg-gray-50
-      text-gray-800
-    "
-  />
-  <Playground />
+  <div class="flex md:flex-row-reverse flex-wrap">
+    <div class="bar"><OptionBar/></div>
+    <div class="playground"><Playground /></div>
+  </div>
 </template>
 
 <script>
@@ -100,6 +94,7 @@ export default {
     Playground,
   },
 };
+
 </script>
 
 <style>
@@ -111,4 +106,17 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.playground {
+  left: 23em;
+  @apply fixed h-screen top-0 right-0 bottom-0 bg-gray-100 p-10
+  /* TODO: handle mobile portrait */
+}
+
+.bar {
+  width: 23em;
+  @apply bg-gray-900 px-2 fixed bottom-0 md:pt-8 top-0 left-0 h-16 h-screen border-r-4 text-gray-50;
+  /* TODO: handle mobile portrait */
+}
+
 </style>

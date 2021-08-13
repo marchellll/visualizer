@@ -1,14 +1,41 @@
 <template>
-  <div
-    class="bar"
-  >
-    <button class="menu-item">Regenerate</button>
-    <div href="#" class="menu-item"><span> Size</span></div>
-    <div href="#" class="menu-item"><span>Sorting Speed</span></div>
-    <div href="#" class="menu-item"><span>Algorithm</span></div>
 
-    <button id="start" class="menu-item">Start</button>
-  </div>
+    <div class="container">
+      <button>Reset</button>
+      <div class="menu-item">
+        <span> Size</span>
+        <input
+          type="range"
+          min="5"
+          max="200"
+          value="50"
+          class="slider"
+          id="myRange"
+        />
+      </div>
+      <div class="menu-item">
+        <span>Sorting Speed</span>
+        <input
+          type="range"
+          min="5"
+          max="200"
+          value="50"
+          class="slider"
+          id="myRange"
+        />
+      </div>
+      <div class="menu-item">
+        <span>Algorithm</span>
+        <select class="text-gray-500" name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+      <button id="start">Start</button>
+    </div>
+
 </template>
 
 <script>
@@ -18,16 +45,19 @@ export default {
 </script>
 
 <style scoped>
-.bar {
-  @apply grid grid-rows-6 md:w-1/5 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600 text-gray-50
+.container {
+  @apply p-4 bg-gray-500 text-gray-50 rounded-lg grid grid-rows-6 grid-cols-1 gap-4 justify-center;
 }
 
 .menu-item {
-  @apply text-gray-50 h-full text-center
+  @apply text-gray-50 h-full text-center grid grid-rows-2 grid-cols-1;
+}
+
+button {
+  @apply h-16 rounded-lg bg-red-700;
 }
 
 .menu-item span {
-  @apply text-gray-50  inline-block align-middle
+  @apply text-gray-50  inline-block align-middle;
 }
-
 </style>
