@@ -31,7 +31,9 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Deploying to Github Pages
+Make sure you have add a new SSh key to your Github account. https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+
 
 ```
-make build
+make deploy
 ```

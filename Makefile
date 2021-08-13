@@ -1,6 +1,12 @@
-PHONY: build
+PHONY: build deploy
 
 build:
 	npm run build
-	rm -rf ./doc
-	mv ./dist doc
+
+deploy: build
+	cd dist
+	git init
+	git add -A
+	git commit -m 'deploy'
+	git push -f git@github.com:marchellll/visualizerku.git master
+	cd -
