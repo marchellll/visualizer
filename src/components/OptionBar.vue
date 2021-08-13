@@ -1,5 +1,4 @@
 <template>
-
     <div class="container">
       <button>Reset</button>
       <div class="menu-item">
@@ -46,7 +45,8 @@ export default {
 
 <style scoped>
 .container {
-  @apply p-4 bg-gray-500 text-gray-50 rounded-lg grid grid-rows-6 grid-cols-1 gap-4 justify-center;
+  background-color: #F78C6B;
+  @apply p-4 text-gray-50 rounded-lg grid grid-rows-6 grid-cols-1 gap-4 justify-center;
 }
 
 .menu-item {
@@ -54,7 +54,8 @@ export default {
 }
 
 button {
-  @apply h-16 rounded-lg bg-red-700;
+  background-color: #EF476F;
+  @apply h-16 rounded-lg;
 }
 
 .menu-item span {
