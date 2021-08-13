@@ -8,5 +8,5 @@ deploy: build
 	git init && \
 	git add -A && \
 	git commit -m 'deploy' && \
-	git push -f git@github.com:marchellll/visualizerku.git master && \
+	git push -f git@github.com:marchellll/visualizer.git master:deploy && \
 	cd -

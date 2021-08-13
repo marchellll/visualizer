@@ -37,3 +37,5 @@ Make sure you have add a new SSh key to your Github account. https://docs.github
 ```
 make deploy
 ```
+
+It will forcfully push whatever inside `/dist` to `deploy` branch. Because that is where our Github Pages configured to be served
