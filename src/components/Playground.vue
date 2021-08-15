@@ -19,12 +19,11 @@ export default {
     };
   },
   async mounted() {
-    console.log('sat 1');
     await this.animateSwap(3, 1);
-    console.log('sat 2');
+
     this.nums[0] = 3;
     this.nums[2] = 1;
-    console.log('sat 3');
+
     this.cleanUpSwapAnimation();
   },
   methods: {
@@ -44,9 +43,6 @@ export default {
         leftElement = tmpElement;
       }
       const translateX = rightRect.x - leftRect.x;
-
-      console.log('el1Rect', leftRect.x);
-      console.log('el3Rect', rightRect.x);
 
       const tl = anime.timeline({
         easing: 'easeInOutCubic',
