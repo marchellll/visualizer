@@ -1,8 +1,19 @@
 /* eslint-disable no-param-reassign */
-export default async function (arr, options) {
+
+/**
+ *
+ * @param {Array} arr - to be sorted
+ * @param {Object} callbacks - includes:
+ *  - isRunning - should return true or false. Will stop the sorting if false
+ *  - onSwap - will take 2 args, which are the numers being swapped
+ *  - afterSwap - need to call this to clean up the animation. this could be improved
+ *  - done - after arr is sorted, this should be called
+ * @returns null
+ */
+export default async function (arr, callbacks) {
   const {
     isRunning, onSwap, afterSwap, done,
-  } = options;
+  } = callbacks;
 
   for (let index1 = 0; index1 < arr.length; index1 += 1) {
     for (let index2 = index1 + 1; index2 < arr.length; index2 += 1) {
