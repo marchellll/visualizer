@@ -30,6 +30,8 @@ import anime from 'animejs';
 import _ from 'lodash';
 import bubbleSort from '../algorithms/sorting/bubbleSort';
 
+anime.suspendWhenDocumentHidden = false;
+
 export default {
   name: 'Playground',
   mounted() {

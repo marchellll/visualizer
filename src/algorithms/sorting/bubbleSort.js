@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 
 /**
- *
+ * O(n ^ 2)
  * @param {Array} arr - to be sorted
  * @param {Object} callbacks - includes:
  *  - isRunning - should return true or false. Will stop the sorting if false
