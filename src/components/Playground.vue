@@ -98,22 +98,22 @@ export default {
 
       await anime.timeline({
         easing: 'easeInOutCubic',
-        duration: this.speed,
+        duration: this.speed * 2,
       })
         .add({
           targets: leftElement,
           scale: 1.1,
           backgroundColor: '#06D6A0',
           boxShadow: '0 40px 40px rgba(0,0,0,0.5)',
-          zIndex: 3,
+          zIndex: 10,
         })
         .add({
           targets: rightElement,
           scale: 1.1,
           backgroundColor: '#06D6A0',
           boxShadow: '0 40px 40px rgba(0,0,0,0.5)',
-          zIndex: 2,
-        }).finished;
+          zIndex: 20,
+        }, 0).finished;
 
       await anime.timeline({
         easing: 'easeInOutCubic',
@@ -126,7 +126,7 @@ export default {
         .add({
           targets: rightElement,
           translateX: -translateX,
-        }).finished;
+        }, 0).finished;
 
       return anime.timeline({
         easing: 'easeInOutCubic',
@@ -145,7 +145,7 @@ export default {
           backgroundColor: '#118AB2',
           boxShadow: '0 0px 0px rgba(0,0,0,0.5)',
           zIndex: 0,
-        }).finished;
+        }, 0).finished;
     },
     async cleanUpSwapAnimation() {
       await this.$nextTick();
