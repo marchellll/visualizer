@@ -3,7 +3,8 @@
 import names from '../../algorithms/sorting/names';
 
 const state = () => ({
-  arraySize: 245,
+  running: false,
+  arraySize: 5,
   sortingSpeed: 200,
   algorithmNames: names,
   algorithm: names[0],
@@ -22,6 +23,9 @@ const mutations = {
   },
   algorithm(_state, algorithm) {
     _state.algorithm = algorithm;
+  },
+  running(_state, running) {
+    _state.running = running;
   },
 };
 

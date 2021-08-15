@@ -6,8 +6,8 @@
       <input
         v-model="arraySize"
         type="range"
-        min="5"
-        max="500"
+        min="2"
+        max="1000"
         class="slider"
         id="sizeRange"
       />
@@ -17,7 +17,7 @@
       <input
         v-model="sortingSpeed"
         type="range"
-        min="120"
+        min="90"
         max="1000"
         class="slider"
         id="speedRange"

@@ -22,13 +22,10 @@ export default {
   },
   methods: {
     start() {
-      console.log('start');
-      // this.$refs.playground.start();
+      this.$refs.playground.start();
     },
     reset() {
-      console.log('reset');
-
-      // this.$refs.playground.reset();
+      this.$refs.playground.reset();
     },
   },
 };
