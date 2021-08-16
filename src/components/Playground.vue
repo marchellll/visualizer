@@ -29,6 +29,7 @@
 import anime from 'animejs';
 import _ from 'lodash';
 import bubbleSort from '../algorithms/sorting/bubbleSort';
+import color from '../colors';
 
 anime.suspendWhenDocumentHidden = false;
 
@@ -75,9 +76,28 @@ export default {
       await bubbleSort(
         this.nums,
         {
-          isRunning: () => this.$store.state.sorting.running, onSwap: this.animateSwap, afterSwap: this.cleanUpSwapAnimation, done: () => {},
+          isRunning: () => this.$store.state.sorting.running,
+          onComparing: this.animateComparing,
+          onSwap: this.animateSwap,
+          afterSwap: this.cleanUpSwapAnimation,
+          log: console.log,
         },
       );
+    },
+    async animateComparing(numA, numB) {
+      await this.$nextTick();
+      const leftElement = this.$refs[`lala_${numA}`];
+      const rightElement = this.$refs[`lala_${numB}`];
+
+      await anime.timeline({
+        easing: 'easeInOutCubic',
+        duration: this.speed,
+        direction: 'alternate',
+      })
+        .add({
+          targets: [leftElement, rightElement],
+          backgroundColor: color.checkItem,
+        }).finished;
     },
     async animateSwap(numA, numB) {
       await this.$nextTick();
@@ -105,14 +125,14 @@ export default {
         .add({
           targets: leftElement,
           scale: 1.1,
-          backgroundColor: '#06D6A0',
+          backgroundColor: color.swappingItem,
           boxShadow: '0 40px 40px rgba(0,0,0,0.5)',
           zIndex: 10,
         })
         .add({
           targets: rightElement,
           scale: 1.1,
-          backgroundColor: '#06D6A0',
+          backgroundColor: color.swappingItem,
           boxShadow: '0 40px 40px rgba(0,0,0,0.5)',
           zIndex: 20,
         }, 0).finished;
@@ -137,14 +157,14 @@ export default {
         .add({
           targets: leftElement,
           scale: 1,
-          backgroundColor: '#118AB2',
+          backgroundColor: color.item,
           boxShadow: '0 0px 0px rgba(0,0,0,0.5)',
           zIndex: 0,
         })
         .add({
           targets: rightElement,
           scale: 1,
-          backgroundColor: '#118AB2',
+          backgroundColor: color.item,
           boxShadow: '0 0px 0px rgba(0,0,0,0.5)',
           zIndex: 0,
         }, 0).finished;
@@ -160,7 +180,7 @@ export default {
 
 <style scoped>
 .num {
-  background-color: #118ab2;
+  background-color: #1982C4;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
   @apply self-center flex-grow overflow-clip overflow-hidden inline-block align-middle;
 }

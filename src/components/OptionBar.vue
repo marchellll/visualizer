@@ -84,16 +84,16 @@ export default {
 
 <style scoped>
 .container {
-  background-color: #f78c6b;
+  background-color: #6A4C93;
   @apply p-4 text-gray-50 rounded-lg grid grid-rows-6 grid-cols-1 gap-4 justify-center;
 }
 
 .menu-item {
-  @apply text-gray-50 h-full text-center grid grid-rows-2 grid-cols-1;
+  @apply text-gray-500 h-full text-center grid grid-rows-2 grid-cols-1;
 }
 
 button {
-  background-color: #ef476f;
+  background-color: #FF595E;
   @apply h-16 rounded-lg;
 }
 

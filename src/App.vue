@@ -38,20 +38,20 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #073b4c;
+  color: #140f1a;
   margin-top: 60px;
 }
 
 .playground {
   left: 23em;
-  background-color: #073b4c;
+  background-color: #140f1a;
   @apply fixed h-screen top-0 right-0 bottom-0 p-10
   /* TODO: handle mobile portrait */;
 }
 
 .bar {
   width: 23em;
-  background-color: #073b4c;
+  background-color: #140f1a;
   @apply fixed h-screen bottom-0 top-0 left-0 px-2 pt-8 text-gray-50;
   /* TODO: handle mobile portrait */
 }
