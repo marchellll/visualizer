@@ -18,23 +18,22 @@ export default async function (arr, callbacks) {
   } = callbacks;
 
   for (let index1 = 0; index1 < arr.length; index1 += 1) {
-    log(`Finding the smallest number for index ${index1}`);
-    for (let index2 = index1 + 1; index2 < arr.length; index2 += 1) {
+    for (let index2 = 0; index2 < arr.length - index1 - 1; index2 += 1) {
       if (!isRunning()) {
         log('Terminated');
         return;
       }
 
-      const number1 = arr[index1];
-      const number2 = arr[index2];
+      const number1 = arr[index2];
+      const number2 = arr[index2 + 1];
 
       log(`Comparing ${number1} and ${number2}`);
       await onComparing(number1, number2); // callback
       if (number1 > number2) {
         log(`${number1} is more than ${number2}, Swapping!`);
         await onSwap(number1, number2); // callback
-        arr[index1] = number2;
-        arr[index2] = number1;
+        arr[index2 + 1] = number1;
+        arr[index2] = number2;
         await afterSwap(); // callback
       } else {
         log(`${number1} is not more than ${number2}`);

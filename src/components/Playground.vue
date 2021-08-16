@@ -16,7 +16,7 @@
         :id="`lala_${num}`"
         :ref="`lala_${num}`"
         class="num"
-        :style="{ height: (num / nums.length) * max_line_height + 23 + 'px' }"
+        :style="{ height: (num / nums.length) * max_line_height + 'px' }"
       >
         {{ num }}
       </div>
@@ -28,7 +28,7 @@
 
 import anime from 'animejs';
 import _ from 'lodash';
-import bubbleSort from '../algorithms/sorting/bubbleSort';
+import sortingAlgos from '../algorithms/sorting';
 import color from '../colors';
 
 anime.suspendWhenDocumentHidden = false;
@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      max_line_height: 650,
+      max_line_height: 600,
       nums: _.shuffle(Array.from({ length: this.$store.state.sorting.arraySize }, (v, i) => i + 1)),
     };
   },
@@ -73,13 +73,18 @@ export default {
     async start() {
       // TODO:  ganti button start jadi kuning dan disable
       this.$store.commit('sorting/running', true);
-      await bubbleSort(
+      console.log('this.algo', this.algo);
+      console.log('sortingAlgos', sortingAlgos);
+      const algoFn = sortingAlgos[this.algo].fn;
+      await algoFn(
         this.nums,
         {
-          isRunning: () => this.$store.state.sorting.running,
+          isRunning: () => this.running,
           onComparing: this.animateComparing,
           onSwap: this.animateSwap,
           afterSwap: this.cleanUpSwapAnimation,
+          onPivotChoosen: this.highlightPivot,
+          onPivotDismiss: this.unhighlightPivot,
           log: console.log,
         },
       );
@@ -173,6 +178,32 @@ export default {
       await this.$nextTick();
 
       anime.set('.num', { translateX: 0 });
+    },
+    async highlightPivot(pivot) {
+      await this.$nextTick();
+
+      const pivotElement = this.$refs[`lala_${pivot}`];
+
+      await anime.timeline({
+        easing: 'easeInOutCubic',
+        duration: this.speed,
+      })
+        .add({
+          targets: pivotElement,
+          backgroundColor: color.button,
+        }).finished;
+    },
+    async unhighlightPivot() {
+      await this.$nextTick();
+
+      await anime.timeline({
+        easing: 'easeInOutCubic',
+        duration: this.speed,
+      })
+        .add({
+          targets: '.num',
+          backgroundColor: color.item,
+        }).finished;
     },
   },
 };

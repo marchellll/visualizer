@@ -18,7 +18,7 @@
         v-model="sortingSpeed"
         type="range"
         min="90"
-        max="1000"
+        max="10000"
         class="slider"
         id="speedRange"
       />
