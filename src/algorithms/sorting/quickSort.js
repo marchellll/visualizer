@@ -70,7 +70,7 @@ const inplaceQuickSort = async (arr, from, to, callbacks) => {
     return;
   }
 
-  if (to - from <= 1) {
+  if (to - from < 1) {
     // empty or single member array
     return;
   }
