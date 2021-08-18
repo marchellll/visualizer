@@ -1,31 +1,44 @@
 <template>
-  <div class="flex md:flex-row-reverse flex-wrap">
-    <div class="bar">
-      <OptionBar
-        @start="start"
-        @reset="reset"
+  <div class="">
+    <div class="playground-chooser">
+      <PlaygroundChooser
+        @start="startSorting"
+        @reset="resetSorting"
       />
     </div>
-    <div class="playground"><Playground ref="playground" /></div>
+    <div class="sorting-bar">
+      <SortingOptionBar v-if="playgroundType === 'sorting'"
+        @start="startSorting"
+        @reset="resetSorting"
+      />
+    </div>
+    <div class="playground"><SortingPlayground v-if="playgroundType === 'sorting'" ref="sortingPlayground" /></div>
   </div>
 </template>
 
 <script>
-import OptionBar from './components/OptionBar.vue';
-import Playground from './components/Playground.vue';
+import PlaygroundChooser from './components/PlaygroundChooser.vue';
+import SortingOptionBar from './components/SortingOptionBar.vue';
+import SortingPlayground from './components/SortingPlayground.vue';
 
 export default {
   name: 'App',
   components: {
-    OptionBar,
-    Playground,
+    PlaygroundChooser,
+    SortingOptionBar,
+    SortingPlayground,
+  },
+  computed: {
+    playgroundType() {
+      return this.$store.state.main.playgroundType;
+    },
   },
   methods: {
-    start() {
-      this.$refs.playground.start();
+    startSorting() {
+      this.$refs.sortingPlayground.start();
     },
-    reset() {
-      this.$refs.playground.reset();
+    resetSorting() {
+      this.$refs.sortingPlayground.reset();
     },
   },
 };
@@ -38,21 +51,26 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #140f1a;
-  margin-top: 60px;
+  background-color: #140f1a;
+  @apply h-screen w-screen;
+}
+
+.playground-chooser {
+  top: 0;
+  width: 23em;
+  @apply fixed left-0 px-2 pt-8 text-gray-50;
 }
 
 .playground {
   left: 23em;
-  background-color: #140f1a;
   @apply fixed h-screen top-0 right-0 bottom-0 p-10
   /* TODO: handle mobile portrait */;
 }
 
-.bar {
+.sorting-bar {
+  top: 6em;
   width: 23em;
-  background-color: #140f1a;
-  @apply fixed h-screen bottom-0 top-0 left-0 px-2 pt-8 text-gray-50;
+  @apply fixed h-screen bottom-0 left-0 px-2 pt-8 text-gray-50;
   /* TODO: handle mobile portrait */
 }
 </style>

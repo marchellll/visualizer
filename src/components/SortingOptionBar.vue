@@ -37,7 +37,7 @@
 import { mapState } from 'vuex';
 
 export default {
-  name: 'OptionBar',
+  name: 'SortingOptionBar',
   computed: {
     ...mapState('sorting', [
       'algorithmNames',
@@ -85,7 +85,7 @@ export default {
 <style scoped>
 .container {
   background-color: #6A4C93;
-  @apply p-4 text-gray-50 rounded-lg grid grid-rows-6 grid-cols-1 gap-4 justify-center;
+  @apply p-4 text-gray-50 rounded-lg grid grid-rows-5 grid-cols-1 gap-4 justify-center;
 }
 
 .menu-item {

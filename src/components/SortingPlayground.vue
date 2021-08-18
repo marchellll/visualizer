@@ -34,7 +34,7 @@ import color from '../colors';
 anime.suspendWhenDocumentHidden = false;
 
 export default {
-  name: 'Playground',
+  name: 'SortingPlayground',
   mounted() {
     const store = this.$store;
     const thus = this;
