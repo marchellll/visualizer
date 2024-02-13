@@ -1,0 +1,12 @@
+version: '3'
+services:
+  miniserve:
+    image: docker.io/svenstaro/miniserve
+    ports:
+      - '10001:8080'
+    volumes:
+      - './dist:/tmp'
+    environment:
+      - MINISERVE_PATH=/tmp
+      - MINISERVE_INDEX=index.html
+
