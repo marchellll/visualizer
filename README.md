@@ -1,6 +1,6 @@
 # Visualizer
 
-See it in action: [https://dsa-visualizer.marchell.xyz/](https://dsa-visualizer.marchell.xyz/)
+See it in action: [https://red-dsa-visualizer.vercel.app/](https://red-dsa-visualizer.vercel.app/)
 
 # Inspiration
 
@@ -32,15 +32,7 @@ pnpm run build
 pnpm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Deploying to Vercel
+JUST PUSH TO MASTER
 
-## Deploying to Github Pages
-Make sure you have add a new SSh key to your Github account. https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
-
-
-```sh
-make deploy
-```
-
-It will forcfully push whatever inside `/dist` to `deploy` branch. Because that is where our Github Pages configured to be served
+vercel will pick up the changes and deploy it to the domain
