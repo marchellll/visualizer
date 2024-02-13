@@ -16,7 +16,7 @@
         :id="`lala_${num}`"
         :ref="`lala_${num}`"
         class="num"
-        :style="{ height: (num / nums.length) * max_line_height + 'px' }"
+        :style="{ height: `${(num / nums.length) * max_line_height}px` }"
       >
         {{ num }}
       </div>
@@ -66,7 +66,9 @@ export default {
       this.$store.commit('sorting/running', false);
 
       // regenerate array
-      this.nums = _.shuffle(Array.from({ length: this.$store.state.sorting.arraySize }, (v, i) => i + 1));
+      this.nums = _.shuffle(
+        Array.from({ length: this.$store.state.sorting.arraySize }, (v, i) => i + 1),
+      );
 
       // TODO: enable start button
     },
@@ -110,8 +112,11 @@ export default {
       let leftElement = this.$refs[`lala_${numA}`];
       let rightElement = this.$refs[`lala_${numB}`];
 
-      let leftRect = leftElement.getBoundingClientRect();
-      let rightRect = rightElement.getBoundingClientRect();
+      console.log('leftElement', leftElement[0]);
+      console.log('rightElement', rightElement);
+
+      let leftRect = leftElement[0].getBoundingClientRect();
+      let rightRect = rightElement[0].getBoundingClientRect();
 
       if (leftRect.x > rightRect.x) {
         const tmpRect = rightRect;

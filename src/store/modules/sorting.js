@@ -4,7 +4,7 @@ import names from '../../algorithms/sorting/names';
 
 const state = () => ({
   running: false,
-  arraySize: 5,
+  arraySize: 10,
   sortingSpeed: 200,
   algorithmNames: names,
   algorithm: names[0],

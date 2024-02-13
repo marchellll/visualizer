@@ -15,5 +15,6 @@ export default {
 };
 
 /**
- * {"Sizzling Red":"ff595e","Mango Tango":"ff924c","Sunglow":"ffca3a","Yellow Green":"8ac926","Green Blue Crayola":"1982c4","Royal Purple":"6a4c93","Xiketic":"140f1a"}
+ * {"Sizzling Red":"ff595e","Mango Tango":"ff924c","Sunglow":"ffca3a","Yellow Green":"8ac926",
+ * "Green Blue Crayola":"1982c4","Royal Purple":"6a4c93","Xiketic":"140f1a"}
  */

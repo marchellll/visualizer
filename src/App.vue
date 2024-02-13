@@ -7,7 +7,8 @@
       />
     </div>
     <div class="sorting-bar">
-      <SortingOptionBar v-if="playgroundType === 'sorting'"
+      <SortingOptionBar
+        v-if="playgroundType === 'sorting'"
         @start="startSorting"
         @reset="resetSorting"
       />

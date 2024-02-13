@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <button @click="emitReset">Reset</button>
+    <button type="button" @click="emitReset">Reset</button>
     <div class="menu-item">
       <span>Array Size</span>
       <input
@@ -14,11 +14,13 @@
     </div>
     <div class="menu-item">
       <span>Sorting Speed</span>
+      <span>⬅ Quicker | Slower ➡</span>
+
       <input
         v-model="sortingSpeed"
         type="range"
         min="90"
-        max="10000"
+        max="2000"
         class="slider"
         id="speedRange"
       />
@@ -29,7 +31,7 @@
         <option v-for="name in algorithmNames" :key="name">{{ name }}</option>
       </select>
     </div>
-    <button id="start" @click="emitStart">Start</button>
+    <button type="button" id="start" @click="emitStart">Start</button>
   </div>
 </template>
 

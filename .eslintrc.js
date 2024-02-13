@@ -3,16 +3,13 @@ module.exports = {
 
   env: {
     node: true,
+    es2022: true, // 👈 add this
   },
 
   extends: [
     'plugin:vue/vue3-essential',
     '@vue/airbnb',
   ],
-
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
 
   rules: {
     'max-len': ['warn', 200],

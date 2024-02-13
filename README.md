@@ -1,6 +1,6 @@
 # Visualizer
 
-See it in action: [https://marchellll.github.io/visualizer/](https://marchellll.github.io/visualizer/)
+See it in action: [https://dsa-visualizer.marchell.xyz/](https://dsa-visualizer.marchell.xyz/)
 
 # Inspiration
 
@@ -12,23 +12,24 @@ links:
 
 
 ## Project setup
-```
-npm install
+```sh
+npm i -g pnpm # if you haven't installed pnpm
+pnpm install
 ```
 
 ### Compiles and hot-reloads for development
-```
-npm run serve
+```sh
+pnpm run serve
 ```
 
 ### Compiles and minifies for production
-```
-npm run build
+```sh
+pnpm run build
 ```
 
 ### Lints and fixes files
-```
-npm run lint
+```sh
+pnpm run lint
 ```
 
 ### Customize configuration
@@ -38,7 +39,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 Make sure you have add a new SSh key to your Github account. https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
 
 
-```
+```sh
 make deploy
 ```
 
